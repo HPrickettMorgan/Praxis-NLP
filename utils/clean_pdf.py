@@ -5,7 +5,7 @@ from pathlib import Path
 import re
 
 BRACKET_REGEX = re.compile(r"\s?\[\d*\]\s?")
-BIB_REGEX = re.compile(r"(Bibliography)|(Works Cited)|(Source Extracts)")
+BIB_REGEX = re.compile(r"(Bibliography)|(Works Cited)|(Source Extracts)", re.IGNORECASE)
 
 if __name__ == "__main__":
     PARSER = argparse.ArgumentParser()
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     characters_written = 0
     characters_read = 0
 
-    with input_file.open(mode="r") as in_file, output_file.open(mode="w") as out_file:
+    with input_file.open(mode="r") as in_file, output_file.open(mode="w+") as out_file:
 
         for line_number, line in enumerate(in_file):
             characters_read += len(line)
