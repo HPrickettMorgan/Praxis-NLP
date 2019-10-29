@@ -40,7 +40,7 @@ if __name__ ==  "__main__":
     PARSER = argparse.ArgumentParser()
     PARSER.add_argument("file", help="file to clean", type=str)
     PARSER.add_argument("-o", "--output", help="output file", type=str)
-    PARSER.add_argument("-v", "verbose", help="set verbosity of cleaning")
+    PARSER.add_argument("-v", "--verbose", action="store_true", help="set verbosity of cleaning")
     args = PARSER.parse_args()
 
     input_file = Path(args.file)
