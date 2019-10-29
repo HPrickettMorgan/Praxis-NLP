@@ -5,10 +5,11 @@ from pathlib import Path
 from sys import stderr
 import re
 
+import pdf
+
 BRACKET_REGEX = re.compile(r"\s?\[\w*\]\s?|\s?\(\w*\)\s?")
 BIB_REGEX = re.compile(r"(Bibliography)|(Works Cited)|(Source Extracts)", re.IGNORECASE)
 EXTRA_WHITESPACE = re.compile(r" [a-z\)\]]+\n")
-
 
 def remove_citations(s):
     """Removes anything between brackets, parentheses, or after a works cited heading"""
@@ -39,22 +40,36 @@ def fix_whitespace(s):
 if __name__ ==  "__main__":
     PARSER = argparse.ArgumentParser()
     PARSER.add_argument("file", help="file to clean", type=str)
-    PARSER.add_argument("-o", "--output", help="output file", type=str)
-    PARSER.add_argument("-v", "verbose", help="set verbosity of cleaning")
+    group = PARSER.add_mutually_exclusive_group()
+    group.add_argument("-o", "--output", help="output file", type=str)
+    group.add_argumet("-r", "--recursive", action="store_true", help="convert an entire directory of pdfs to txt")
+    PARSER.add_argument("-v", "--verbose", action="store_true", help="set verbosity of cleaning")
     args = PARSER.parse_args()
 
-    input_file = Path(args.file)
-    output_file = Path(args.output) if args.output else None
-
-    with input_file.open(mode="r") as f:
-        out_text, percent_deleted = remove_citations(f.read())
-        out_text = fix_whitespace(out_text)
-    
-    if output_file:
-        with output_file.open(mode="w+") as f:
-            f.write(out_text)
+    if args.recursive:
+        for name, text in pdf.get_folder_pdf_text(args.file).items():
+            out_text, percent_deleted = remove_citations(text)
+            out_text = fix_whitespace(out_text)
+        
+            with open(Path(args.file) / name + ".txt") as f:
+                f.write(out_text)
+            
+            if args.verbose:
+                print(f"Deleted {percent_deleted}% of the file", file=stderr)
     else:
-        print(out_text)
+        input_file = Path(args.file)
+        output_file = Path(args.output) if args.output else None
 
-    if args.verbose:
-        print(f"Deleted {percent_deleted}% of the file", file=stderr)
+        in_text = pdf.convert_pdf_to_txt(input_file)
+        out_text, percent_deleted = remove_citations(in_text)
+        out_text = fix_whitespace(out_text)
+        
+        if output_file:
+            with output_file.open(mode="w+") as f:
+                f.write(out_text)
+        else:
+            print(out_text)
+
+        if args.verbose:
+            print(f"Deleted {percent_deleted}% of the file", file=stderr)
+
