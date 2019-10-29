@@ -4,11 +4,8 @@ from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from io import StringIO
 
-from mine_pdf import convert_pdf_to_txt
-
 import glob
 import os
-
 
 def convert_pdf_to_txt(path):
     # from https://stackoverflow.com/a/26495057
@@ -39,7 +36,6 @@ def convert_pdf_to_txt(path):
     retstr.close()
     return text
 
-
 def get_folder_pdf_text(folder, n=-1):
     """Obtains the text of PDFs in an entire folder.
 
@@ -51,7 +47,6 @@ def get_folder_pdf_text(folder, n=-1):
     """
     text = {}
     for i, fname in enumerate(glob.iglob(os.path.join(folder, '*.pdf'))):
-        print(fname)
         text[os.path.basename(fname).split('.')[0]] = \
             convert_pdf_to_txt(os.path.join(folder, fname))
         if i >= n-1 and n is not -1:
