@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """A command line utility to fix whitespacing in scraped PDFs for Praxis-NLP."""
 import argparse
 from pathlib import Path
