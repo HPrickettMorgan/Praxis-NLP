@@ -10,7 +10,7 @@ BIB_REGEX = re.compile(r"(Bibliography)|(Works Cited)|(Source Extracts)", re.IGN
 EXTRA_WHITESPACE = re.compile(r" [a-z\)\]]+\n")
 
 
-def remove_citations(s):
+def remove_citations(s, verbose):
     """Removes anything between brackets, parentheses, or after a works cited heading"""
     lines=[]
     characters_written = 0
@@ -19,7 +19,7 @@ def remove_citations(s):
     for line_number, line in enumerate(s):
 
         if re.search(BIB_REGEX, line):
-            if args.verbose:
+            if verbose:
                 print(f"Truncated at line {line_number}: {line}", file=stderr)
             break
         (new_line, __) = re.subn(BRACKET_REGEX, "", line)
@@ -48,7 +48,7 @@ if __name__ ==  "__main__":
 
     with input_file.open(mode="r") as f:
         out_text, percent_deleted = remove_citations(f.read())
-        out_text = fix_whitespace(out_text)
+        out_text = fix_whitespace(out_text, args.verbose)
     
     if output_file:
         with output_file.open(mode="w+") as f:
