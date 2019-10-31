@@ -1,0 +1,138 @@
+RATS on the University of Toronto - St. George Campus
+1.0 Introduction - The Importance of Rapidly Accessible Temporary Storage
+This design brief presents an opportunity for improving student experience at the University
+of Toronto St. Georgeengineering campus by means of designing a rapidly accessible widely available short-term storagesolution for engineering students.
+The UTSG engineering campus currently lacks sufficient storage to accommodate students. Based on our preliminary research, students carry a considerable amount of material them into classrooms, causing classroom congestion and inconvenience due to the lack of free space.
+It is necessary to develop a solution that addresses these problems in a way that meets requirements of both the engineering students and the university as a means to improve experience.
+2.0 The Problem
+Without a place to store belongings, students frequently bring their belongings into halls and tutorial rooms, causing congestion and discomfort due to the lack of free space. Notably,
+movement between seats when entering or leaving the classroom is impaired, and free space spreading out one’s legs is reduced dramatically. As students must remain in classes for up to 3 at a time, thepresence of belongings to lecture halls ultimately poses a great inconvenience students.
+This can be reframed as an opportunity to develop a RATS, which takes into consideration temporary storage needs of engineering students.
+2.1 Limitations of Scope
+This brief was chosen to encompass engineering students only, as a wide variety of and hence locker requirements exist across the entire campus. For instance, architecture students specialized bags for their drawings, which would require a separate type of RATS solution, necessarily in alignment with what is being investigated in this report.
+2.2 Stakeholders and Preliminary Investigation
+Approximately 45 undergraduate engineering students at UTSG were surveyed, to information about their views on current accommodations and preferences towards lockers.
+Over 60% of students expressed that bringing backpacks and personal belonging into halls was an inconvenience. 84% of students reported that they do not have a locker, approximately 60% of students stating that they did not own a storage space on campus due to a of availability and belief that existing solutions are inadequate.
+Students also expressed a desire for cheaper solutions than existing lockers.
+2.3 Stakeholder Statements
+● “There's not enough time to go to my locker between classes, and I need to bring home anyways to work on so the lockers are pointless to me. This might be different students with textbooks.”
+● “I’d like to be able to distinguish between lockers quickly and easily to identify my own. shouldn't take too long to access and use storage facilities”
+● “I’d like the locker near/in a spot you study. E.g. engsci common room lockers for those find studying in the common room to be beneficial to them.”
+Implementation of RATS also requires cooperation on the part of the University of Toronto,
+and thus they must also be considered. As they provide the funding for the project, their principal is to minimize cost, including procurement, installation, as well as maintenance costs.
+2.4 Existing Solutions
+Currently, a number of reference designs exist. However, they have significant drawbacks are unsuitable as solutions.
+1. Semester Lockers
+Permanent lockers, such as the ones in the Engineering Science Common Room (EngSci
+common room), must be rented for a full semester. These do not allow students to temporarily their belongings, and additionally require students to constantly travel to specific locations to access.
+As students only have a 10 minute transition period between classes, it is impractical to access these lockers in the allotted time. From our investigation, it takes at least 1m 45s
+for a round trip between BA entrance and the lockers in the EngSci common room. First Engineering Science students in LEC0101 travel from MB129 to LM162, which takes around 8
+minutes according to Google Maps. Even under optimal conditions, this leaves less than 30
+seconds of spare time, and in the event of unforeseen disputions, this would exceed the transition time.
+Furthermore, due to the limited quantity of lockers available, there are not currently enough accomodate all engineering students.
+Similar solutions currently exist in BLas well as other buildings on the campus via Skuleranging from $30 to $100 per semester. This cost is considered prohibitive some students, based on the survey. The nature of this rental scheme is not ideal for belongings only temporarily as students must commit to a semester-long rental.
+2. Temporary Lockers
+Temporary lockers, such as those in the Hart House gym, are located far from the buildings, and in the same manner as the BA lockers, they are not viable.
+Myhal Centre also has project lockers, but are limited in number and are only available those wishing to store prototypes or design projects. Furthermore, they are located on the 4th floor the building, increasing students’ travel time between classes.
+3. Cubbies
+EX200 has cubbies in which students can temporarily store their belongings during an exam.
+This room is closely supervised and thus provides security. However, if they are implemented widely around campus, the security of one’s belongings cannot be ensured as the cubbies would to be distributed into unsupervised public spaces, raising the possibility of theft.
+4. Leaving Belongings Unattended
+This solution poses a serious security issue and is thus not viable for storing belongings, seen by reports of past theft.
+Neither of the latter are viable due to the possibility of theft.
+3.0 Overall Objectives
+From the preceding information, it can be seen that location-specific lockers are not a option for some students due to time constraints. Additionally, the lockers currently available are abundant, preventing a large number of students benefiting from the service. From this the principal objective for students is defined:
+1. Produce a RATS solution that will allow a large number of students to easily access and belongings for a short period of time - roughly 3 hours (which is the longest class on all of timetables).
+Furthermore, the university itself must ensure that RATS can last for a long time, and integrated into existing infrastructure in order to be a viable option, without causing disruptive to the existing campus, and adhering to the building codes.
+2. Allow easy maintenance and streamlined integration into existing infrastructure.
+3.1 Detailed Objectives
+The overall objectives can be subdivided into more detailed objectives, relevant to:
+Usability for students:
+● Rapid Accessibility
+● Wide Availability
+● Storage Capability
+● Security of Belongings
+● Usage Cost
+● Safety ​(Inherently safe design, Safety reserves, Safe fail, Procedural Integration and Maintenance for the University:
+● Efficient Installation
+● Minimization of Disruptive Impact
+● Scalability
+Additionally, the following objectives were investigated but excluded:
+● Number of RATS Spaces
+This is an implied aggregation of several objectives, dependent mainly on Wide
+Availability and Storage Capability. For instance, a larger internal volume will the number of units available, decreasing availability and vice versa. We believe it more practical and systematic to assess each separately.
+● Longevity
+This objective is difficult to adequately measure, and is highly dependant on scalability it affects the material choice and structural design, which falls under the DfManufacturing
+and DfAssembly requirements.
+● Operational Cost and Maintenance
+There are many factors influencing this. Given that not much data is available on operational costs of currently existing solutions, it is difficult to measure the requirements of the system. Anything ranging from physical mechanisms to subsystems affects maintenance needs and operational costs. The only requirement can be specified at this point is to aim for a low maintenance design as a general heuristic.
+3.2 Objectives Justification
+1. Rapid Accessibility
+As seen previously, many currently available storage options are unable to satisfy the requirements for students travelling to classes. Rapid accessibility measures the total amount of time takes for a student to perform the following sequence of tasks:
+Depart from class → Approach locker → Open Locker → Transfer Items →
+Close locker → Depart from locker → Go to Next Class
+To measure this objective, ​[METRIC:]​ accessibility is measured in seconds through the interval when one’s class ends to the start of their next class while accessing the locker in between.
+Furthermore, ​[CONSTRAINT:] ​the RATS solution must be situated such that the time interval not exceed 600 seconds for students between classes. Since time efficiency is [CRITERION:]​ shorter access time spent at the locker is better.
+2. Wide Availability
+The RATS solution must be available such that most students will be able to access it needed. ​[METRIC:] ​This can be measured as a binary pass/fail test of whether or not a student is to find an open RATS space and access it within their 10-minute transition window. ​:
+A higher success rate is preferred. This objective implicitly affects choices such as the number of available at a time or the enforcement of a maximum usage time. Additionally, the ​[METRIC:]
+availability can be measured as a function of uptime in hours during which RATS is usable, [CRITERIA:] ​higher uptime preferable. ​[CONSTRAINT:] ​RATS must be available between 9 AM
+and 6 PM to serve students during engineering class hours.
+3. Storage Capability
+This objective is measured in terms of ​[METRIC:] ​internal linear dimensions in centimetres.
+[CRITERION:] ​A higher internal space is preferred, and at a minimum ​[CONSTRAINT:]​ must large enough to fit a fully loaded backpack (35 x 45 x 50 cm) since we that over 95% of students surveyed carry around a backpack.
+4. Security
+To prevent unwanted access, the RATS must have a locking mechanism able to attempts to breach (gain access to belongings), measured by ​[METRIC:] ​the maximum amount force (in Newtons) required to break in and the required time to gain access. ​
+Locker must be able to withstand a horizontal outward force of 220 N that is continuously applied it for 30 seconds as specified by CAN/CGSB 44.40-2001. ​[CRITERION:] ​A higher breach force and longer time is preferred.
+5. Usage Cost
+[METRIC:]​ Cost is a significant factor according to the survey.  ​[CONSTRAINT:] ​The
+usage cost of the solution for students must not exceed that of the most expensive current solution - the $100 large full-size lockers. ​: ​Cheaper RATS solutions are preferred.
+6. Safety
+The solution’s safety will be assessed in relation to its regulatory compliance.
+Assuming it is a locker-like solution, its security can be assessed in relation to ​[METRIC:]​ compliance, and, ​[CONSTRAINT:]​ it must conform to CAN/CGSB-44.40-2001, which specifies:
+Otherwise, the safety of the solution can be assessed as a function of ​[METRIC:] ​Table 3.16 of Design Safety Checklist [8,9], which lists factors that are attributed to the safety of an object.
+[CRITERION:] ​It is preferable to meet more regulatory standards and DfSafety items.
+7. Installation Process
+The RATS solution should be easily installable, ​[METRIC:]​, measured by the number required to install and the number of significant modifications to the building. ​[CRITERIA:] ​A number of actions and building alterations is preferable, and ​[CONSTRAINT:] ​the installation of RATS solution must be such that it does not violate any UTSG building codes.
+8. Minimization of Disruptive Impact
+The RATS solution will likely incur a high volume of traffic flow, as many people will accessing it daily. ​[METRIC:]​ RATS space impact can be measured by the amount of floor area that the locker occupies in cm​2​, as this space would otherwise be occupied by foot traffic.
+[CONSTRAINT:] ​RATS spaces must take up a floor space that is at least 35 cm by 45 cm conform to internal space constraints. ​[CRITERION:] ​Less occupied floor space is preferable.
+9. Scalability
+Since RATS must be widely available, a large number of systems will likely be installed thus it must be easy to manufacture and assemble. ​[METRIC:] ​Scalability can be measured as function of DfManufacture and DfAssembly metrics, specifically the manufacturing cost in $CAD
+and assembly time in seconds. ​[CRITERION:] ​Lower cost and assembly time are preferred.
+These justifications are summarized in the table below:
+Objective Metrics Criteria Constraints
+Rapid
+Accessibility
+Time required to from origin to with locker stop and on the Shorter time is better Usage time must be less than 10 minutes (600 Wide
+Availability
+Binary Success Rate being able to find an RATS slot within 10
+minutes [%]
+Uptime as a time Higher Success rate better
+Higher uptime is Uptime must be at [9 AM to 6 PM]
+Storage
+Capability
+INTERNAL Linear
+dimensions
+Larger dimensions better
+At least 35 cm by 45 by 50 Security
+Maximum force to Minimum time required breach
+Higher force is Longer time is Locking mechanism withstand a combination 220 N for 30s breach
+Usage Cost Cost required to use the service [$CAD] Cheaper is Cannot exceed $100 CAD
+per Safety
+Conformity to Security
+standards and compliance
+Number of items on DfS Greater number of items and standards Must adhere CAN/CGSB 44.40-2001
+Installation
+Process
+Number of required to Number of alterations
+Fewer actions are Actions cannot significant alterations nor breach university building Minimization
+of Disruptive
+Impact
+Area occupied [cm​2​] Less area is Area must be at least 35 45 cm to conform to RATS
+capability
+Scalability
+Unit Cost [$CAD]
+Assembly Time
+Lower unit cost is Shorter Assembly Time better
+N/A
