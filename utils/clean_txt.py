@@ -7,16 +7,16 @@ import re
 
 BRACKET_REGEX = re.compile(r"\s?\[\w*\]\s?|\s?\(\w*\)\s?")
 BIB_REGEX = re.compile(r"(Bibliography)|(Works Cited)|(Source Extracts)", re.IGNORECASE)
-EXTRA_WHITESPACE = re.compile(r" [a-z\)\]]+\n")
+EXTRA_WHITESPACE = re.compile(r" [a-z\)\],;]+\n")
 
 
-def remove_citations(s, verbose):
+def remove_citations(s, verbose=False):
     """Removes anything between brackets, parentheses, or after a works cited heading"""
     lines=[]
     characters_written = 0
     characters_read = 0
 
-    for line_number, line in enumerate(s):
+    for line_number, line in enumerate(s.split('\n')):
 
         if re.search(BIB_REGEX, line):
             if verbose:
@@ -32,7 +32,7 @@ def remove_citations(s, verbose):
 
 def fix_whitespace(s):
     """Removes superfluous lines and newlines"""
-    s = "\n".join(line.strip() for line in s if line.strip()).replace("  ", " ")
+    s = "\n".join(line.strip(" -\t\n") for line in s.split("\n") if line.strip(" -\t\n123456789."))
     s, __ = re.subn(EXTRA_WHITESPACE, " ", s)
     return s.replace("\u2000", "")
 
@@ -47,8 +47,8 @@ if __name__ ==  "__main__":
     output_file = Path(args.output) if args.output else None
 
     with input_file.open(mode="r") as f:
-        out_text, percent_deleted = remove_citations(f.read())
-        out_text = fix_whitespace(out_text, args.verbose)
+        out_text, percent_deleted = remove_citations(f.read(), args.verbose)
+        out_text = fix_whitespace(out_text)
     
     if output_file:
         with output_file.open(mode="w+") as f:
