@@ -1,1 +1,5 @@
-pdfminer.six
+transformers
+torch
+torchvision
+tensorboardX
+tqdm
