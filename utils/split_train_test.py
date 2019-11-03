@@ -20,11 +20,11 @@ def split_train_test(data_dir, train_out, test_out, train_test_ratio):
         with open(file, 'r') as f:
             text = f.read()
             if i <= train_up_to:
-                print(f"Apending file {os.path.basename(file)} to train")
+                print(f"Appending file {os.path.basename(file)} to train")
                 train_text += text
             else:
-                print(f"Apending file {os.path.basename(file)} to test")
-                test_text += test_text
+                print(f"Appending file {os.path.basename(file)} to test")
+                test_text += text
     with open(train_out, 'w') as f:
         f.write(train_text)
         print(f"Written train file to {train_out}")
