@@ -18,7 +18,7 @@ def split_train_test(data_dir, train_out, test_out, train_test_ratio):
     test_text = ""
     for i, file in enumerate(files):
         with open(file, 'r') as f:
-            text = f.read()
+            text = f.read() + ' <|endoftext|>'
             if i <= train_up_to:
                 print(f"Apending file {os.path.basename(file)} to train")
                 train_text += text
