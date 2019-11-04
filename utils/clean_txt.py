@@ -23,7 +23,7 @@ def remove_citations(s, verbose=False):
     """Removes anything between brackets, or after a bibliograhpy heading"""
     lines = []
     characters_written = 0
-    characters_read = 0
+    characters_read = len(s)
 
     for line_number, line in enumerate(s.split('\n')):
 
@@ -33,7 +33,6 @@ def remove_citations(s, verbose=False):
             break
         (new_line, __) = re.subn(BRACKET_REGEX, '', line)
         lines.append(new_line)
-        characters_read += len(line)
         characters_written += len(new_line)
 
     return ('\n'.join(lines), (characters_read - characters_written) / characters_read)
