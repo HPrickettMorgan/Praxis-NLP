@@ -8,7 +8,7 @@ import re
 # characters or spaces
 BRACKET_REGEX = re.compile(r'\s?\[(\w|\s|,)*\]|\s?\((\w|\s|,)*\)')
 BIB_REGEX = re.compile(
-    r'(Bibliography)|(Works Cited)|(Source Extracts)|(Appendix(:|\n))', re.IGNORECASE
+    r'(Bibliography)|(Works Cited)|(Source Extracts)|(Appendix(:|\n))|(References)', re.IGNORECASE
 )
 EXTRA_WHITESPACE = re.compile(r" [a-z\)\],;]+\n")
 
