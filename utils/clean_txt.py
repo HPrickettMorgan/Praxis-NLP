@@ -13,12 +13,6 @@ BIB_REGEX = re.compile(
 EXTRA_WHITESPACE = re.compile(r" [a-z\)\],;]+\n")
 
 
-def remove_non_ascii(s):
-    """Re-encodes s as ASCII"""
-    s.encode('ascii', 'ignore')
-    return s
-
-
 def remove_citations(s, verbose=False):
     """Removes anything between brackets, or after a bibliograhpy heading"""
     lines = []
@@ -44,9 +38,6 @@ def fix_whitespace(s):
         line.strip(' -\t\n') for line in s.split('\n') if line.strip(' -\t\n123456789.')
     )
     s, __ = re.subn(EXTRA_WHITESPACE, ' ', s)
-
-    # remove weird characters
-    s = s.replace(u'\u200b', '')
 
     # merge lines with line breaks in the middle and a lower case letter at the beggining
     # of the next line, indicating that there has been a line break mid-sentence
@@ -79,7 +70,7 @@ def clean_file(file, verbose=False):
     with input_file.open(mode='r') as f:
         file_text = f.read()
 
-    file_text = remove_non_ascii(file_text)
+    file_text = file_text.encode('ascii', 'ignore').decode()
     file_text, percent_deleted = remove_citations(file_text, verbose)
     warn_deletion_threshold = 0.5
     if percent_deleted > warn_deletion_threshold:
